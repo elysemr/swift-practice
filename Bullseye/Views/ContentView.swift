@@ -17,10 +17,11 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
-                SliderView(sliderValue: $sliderValue)
+                    .padding(.bottom, 100)
                 HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
                 
             }
+            SliderView(sliderValue: $sliderValue)
         }
         
     }
@@ -53,7 +54,13 @@ struct ContentView: View {
                     .strokeBorder(Color.white, lineWidth: 2.0))
             .alert(isPresented: $alertIsVisible, content: {
                 let roundedValue = Int(sliderValue.rounded())
-                return Alert(title: Text("Hello there."), message: Text("The slider's value is \(roundedValue).\n" + "You scored \(game.points(sliderValue: roundedValue)) points this round."), dismissButton: .default(Text("Awesome")))
+                let points =  game.points(sliderValue: roundedValue)
+                return Alert(title: Text("Hello there."), message: Text("The slider's value is \(roundedValue).\n" + "You scored \(points)) points this round."),
+                    dismissButton: .default(Text("Awesome"))
+                {
+                    game.startNewRound(points: points)
+                    
+                })
                 
             })
         }
@@ -88,6 +95,7 @@ struct SliderView: View {
     }
     
     }
+    
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
