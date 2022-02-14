@@ -55,7 +55,25 @@ struct LabelText: View {
     }
 }
 
+struct BodyText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .Alignment(.center)
+    }
+}
 
+struct ButtonText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(Color.accentColor)
+    }
+}
 
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
@@ -64,6 +82,10 @@ struct TextViews_Previews: PreviewProvider {
         BigNumberText(text: "999")
         SliderLabelText(text: "99")
         LabelText(text: "555")
+        BodyText(text: "You scored 200 points\n🎉🎉🎉")
+        ButtonText(text: "Start New Round")
+            
         }
+        .padding()
     }
 }
