@@ -25,13 +25,20 @@ struct BackgroundView: View {
 
 struct TopView: View {
     @Binding var game: Game
+    @State private var leaderboardIsShowing = false
     
     var body: some View {
         HStack {
             Button(action: {game.restart()})
             {RoundedImageViewStroked(systemName: "arrow.counterclockwise") }
             Spacer() //will grow it to as wide as the view
-            RoundedImageViewFilled(systemName: "list.dash")
+            Button(action: {
+                leaderboardIsShowing = true
+            }) {
+                RoundedImageViewFilled(systemName: "list.dash")
+            }.sheet(isPresented: $leaderboardIsShowing, onDismiss: {}, content: {
+                LeaderboardView(leaderboardIsshowing: $leaderboardIsShowing, game: $game)
+            })
         }
     }
 }
@@ -81,6 +88,8 @@ struct RingsView: View {
         }
     }
 }
+
+
 
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
