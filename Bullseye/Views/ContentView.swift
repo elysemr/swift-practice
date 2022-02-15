@@ -17,11 +17,19 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
-                    .padding(.bottom, 100)
+                    .padding(.bottom, alertIsVisible ? 0 : 100)
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
+                } else {
                 HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
-                
+                        .transition(.scale)
+                }
             }
+            if !alertIsVisible {
             SliderView(sliderValue: $sliderValue)
+                    .transition(.scale)
+            }
         }
         
     }
@@ -34,7 +42,9 @@ struct ContentView: View {
         
         var body: some View {
             Button(action: {
+                withAnimation {
                 alertIsVisible = true
+                }
             }) {
                 Text("Hit me".uppercased())
                     .bold()
@@ -48,21 +58,10 @@ struct ContentView: View {
                 })
             
             .foregroundColor(Color.white)
-            .cornerRadius(21.0)
+            .cornerRadius(Constants.General.roundRectCornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: 21.0)
-                    .strokeBorder(Color.white, lineWidth: 2.0))
-            .alert(isPresented: $alertIsVisible, content: {
-                let roundedValue = Int(sliderValue.rounded())
-                let points =  game.points(sliderValue: roundedValue)
-                return Alert(title: Text("Hello there."), message: Text("The slider's value is \(roundedValue).\n" + "You scored \(points)) points this round."),
-                    dismissButton: .default(Text("Awesome"))
-                {
-                    game.startNewRound(points: points)
-                    
-                })
-                
-            })
+                RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
+                    .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth))
         }
 }
 
