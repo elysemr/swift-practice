@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		80488DE427BC162D00AD4985 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80488DE327BC162D00AD4985 /* Constants.swift */; };
+		80488DE627BC26D300AD4985 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80488DE527BC26D300AD4985 /* LeaderboardView.swift */; };
 		8086BAD227B59A7500F7A5C4 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8086BAD127B59A7500F7A5C4 /* TextViews.swift */; };
 		8086BAD627B5A4B600F7A5C4 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8086BAD527B5A4B600F7A5C4 /* Shapes.swift */; };
 		8086BAD827B5B4B800F7A5C4 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8086BAD727B5B4B800F7A5C4 /* RoundedViews.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		80488DE327BC162D00AD4985 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		80488DE527BC26D300AD4985 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		8086BAD127B59A7500F7A5C4 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		8086BAD527B5A4B600F7A5C4 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		8086BAD727B5B4B800F7A5C4 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				8086BAD727B5B4B800F7A5C4 /* RoundedViews.swift */,
 				8086BAD927B5C02800F7A5C4 /* BackgroundView.swift */,
 				80F83A8A27BC0C50009C66A4 /* PointsView.swift */,
+				80488DE527BC26D300AD4985 /* LeaderboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80488DE627BC26D300AD4985 /* LeaderboardView.swift in Sources */,
 				8086BAD827B5B4B800F7A5C4 /* RoundedViews.swift in Sources */,
 				80EBAAAA27AC834000745A8E /* game.swift in Sources */,
 				8086BAD227B59A7500F7A5C4 /* TextViews.swift in Sources */,
